@@ -1,4 +1,4 @@
-# To-DO List
+# To-Do List
 
 Step 1 : pip install virtualenv (If Virtualenv is not installed)
 
