@@ -51,7 +51,22 @@ def addTask(task_string):
     f.write(str1)
     f.close()
     return
-
+  
+def SearchTask(self, value):
+        curr = self.head
+        f = open("output.txt", "a")
+        str1 = "SEARCHED:book"
+        str2 = "--------------------------------"
+        f.write(str1)
+        f.write(str2)
+        while (curr != None):
+            actionid, Lvalue = curr.data.split("-")
+            if value.upper() in Lvalue.upper():
+                f.write(curr.data)
+            curr = curr.next
+        f.write(str2)
+        f.close()
+        
 def removeTask(task_string):
     temp = List.head
     flag = 0
