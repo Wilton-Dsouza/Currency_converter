@@ -32,10 +32,10 @@ def initiateToDoList(input_file):
         elif task == 'Mark InComplete': #Vishak
             # List.incompleteTask()
             pass 
-        elif task == 'Task Status':   #Hitesh
+        elif task == 'Task Status':   #Hitesh done
             statusTask()
             pass 
-        elif task == 'Search Task':   #Hitesh
+        elif task == 'Search Task':   #Hitesh done
             searchTask(action)
             pass
     fp.close()
