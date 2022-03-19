@@ -1,7 +1,7 @@
 class Node:                #Node
   id=1
   # constructor
-  def __init__(self, data = None, next=None, status=None): 
+  def __init__(self, data = None, next=None, status='I'): 
     self.data = data
     self.next = next
     self.status = status
@@ -107,9 +107,27 @@ def SearchTask(self, value):
             curr = curr.next
         f.write(str2)
         f.close()
+       
+def  statusTask(self):
+        curr = self.head
+        f = open("output.txt", "a")
+        str1 = 'TASK-STATUS:'
+        str2 = 'Task-Number Task-String         Task-Status'
+        str3 = "--------------------------------"
+        f.write(str1)
+        f.write(str2)
+        f.write(str3)
+        while (curr != None):
+            Actionid , TString = curr.data.split("-")
+            TNumber = Actionid.split(":")[1]
+            entry = TNumber +'      '+ TString + '      ' + curr.status
+            f.write(entry) 
+
+            curr = curr.next
         
-
-
+        f.write(str3)
+        f.close()
+        
  
 initiateToDoList("inputPS5.txt")
    
