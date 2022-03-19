@@ -92,7 +92,6 @@ def completeTask(task_string = None, task_number = None):
             f.write(str1)
             f.close()
         current = current.next
-    pass
 
 def SearchTask(self, value):
         curr = self.head
