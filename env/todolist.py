@@ -33,10 +33,10 @@ def initiateToDoList(input_file):
             # List.incompleteTask()
             pass 
         elif task == 'Task Status':   #Hitesh
-            # List.incompleteTask()
+            statusTask()
             pass 
         elif task == 'Search Task':   #Hitesh
-            # List.searchTask()
+            searchTask(action)
             pass
     fp.close()
 
@@ -62,17 +62,18 @@ def removeTask(task_string = None, task_number = None):
     
     if (temp is not None):
         if (temp.data == task_string or temp.id == task_number):
-            List.head = temp.next
+            List.head = List.head.next
             flag = 1
+
     if flag == 0:
         while(temp is not None):
             if temp.data == task_string or temp.id == task_number:
+                prev.next = temp.next
                 break
             prev = temp
             temp = temp.next       
     if(temp == None):
-            return
-    prev.next = temp.next
+            return 
     f = open("outputPS5.txt", "a")
     str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
     f.write(str1)
@@ -93,38 +94,39 @@ def completeTask(task_string = None, task_number = None):
             f.close()
         current = current.next
 
-def SearchTask(self, value):
-        curr = self.head
+def searchTask(search_string):
+        value = search_string.replace(".","").strip()
+        curr = List.head
+        str1 = "SEARCHED:"+search_string
+        str2 = "----------------------\n"
         f = open("outputPS5.txt", "a")
-        str1 = "SEARCHED:book"
-        str2 = "--------------------------------"
         f.write(str1)
         f.write(str2)
-        while (curr != None):
-            actionid, Lvalue = curr.data.split("-")
+        while curr:
+            Lvalue = curr.data
             if value.upper() in Lvalue.upper():
                 f.write(curr.data)
             curr = curr.next
         f.write(str2)
         f.close()
        
-def  statusTask(self):
-        curr = self.head
-        f = open("output.txt", "a")
-        str1 = 'TASK-STATUS:'
-        str2 = 'Task-Number Task-String         Task-Status'
-        str3 = "--------------------------------"
+def  statusTask():
+        curr = List.head
+        str1 = 'TASK-STATUS:\n'
+        str2 = 'Task-Number Task-String     Task-Status\n'
+        str3 = "--------------------------------\n"
+        f = open("outputPS5.txt", "a")
         f.write(str1)
         f.write(str2)
         f.write(str3)
-        while (curr != None):
-            Actionid , TString = curr.data.split("-")
-            TNumber = Actionid.split(":")[1]
-            entry = TNumber +'      '+ TString + '      ' + curr.status
-            f.write(entry) 
-
+        while (curr!= None):
+            Actionid = curr.id
+            TString = curr.data
+            TNumber = "TA"+str(Actionid)
+            TStatus = curr.status
+            entry = TNumber+'        '+ TString.rstrip()+'   '+TStatus+'\n'
+            f.write(entry)
             curr = curr.next
-        
         f.write(str3)
         f.close()
         

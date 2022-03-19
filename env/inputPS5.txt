@@ -4,4 +4,11 @@ Add a Task: Book a ticket.
 Add a Task: Wish Birthday
 Remove Task: Wish Birthday
 Mark Complete: Complete Assignment.
-Add a Task: Wish Birthday
+Task Status:
+Mark InComplete: Complete Assignment.
+Remove Task: Complete Assignment.
+Add a Task: Call Home.
+Add a Task: Read Algorithm book
+Remove Task: Call Home.
+Search Task: book.
+Add a Task: wear mask,
