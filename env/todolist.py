@@ -1,9 +1,10 @@
 class Node:                #Node
-  id=0
+  id=1
   # constructor
-  def __init__(self, data = None, next=None): 
+  def __init__(self, data = None, next=None, status=None): 
     self.data = data
     self.next = next
+    self.status = status
     self.id = Node.id
     Node.id += 1
 
@@ -21,14 +22,14 @@ def initiateToDoList(input_file):
             break
         task,action = lines.split(":")
         #print(task,action)
-        if task == 'Add a Task':        #Upendra
+        if task == 'Add a Task':        #Upendra done
             addTask(action)
-        elif task == 'Remove Task':     #Upendra
+        elif task == 'Remove Task':     #Upendra done
             removeTask(action)
-        elif task == 'Mark Complete':  #Vishak
-            # List.completeTask()
+        elif task == 'Mark Complete':  #Wilton done
+            completeTask(action)
             pass
-        elif task == 'Mark InComplete': #Wilton
+        elif task == 'Mark InComplete': #Vishak
             # List.incompleteTask()
             pass 
         elif task == 'Task Status':   #Hitesh
@@ -46,15 +47,56 @@ def addTask(task_string):
     else:
             List.last_node.next = Node(task_string)
             List.last_node = List.last_node.next
-    f = open("output.txt", "a")
-    str1 = "ADDED:TA"+str(List.last_node.id)+"-"+str(List.last_node.data)
+    f = open("outputPS5.txt", "a")
+    str1 = "ADDED:TA"+str(List.last_node.id)+"-"+str(List.last_node.data.lstrip())
     f.write(str1)
     f.close()
     return
-  
+    
+def removeTask(task_string = None, task_number = None):
+    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if res is True:
+        task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
+    temp = List.head
+    flag = 0
+    
+    if (temp is not None):
+        if (temp.data == task_string or temp.id == task_number):
+            List.head = temp.next
+            flag = 1
+    if flag == 0:
+        while(temp is not None):
+            if temp.data == task_string or temp.id == task_number:
+                break
+            prev = temp
+            temp = temp.next       
+    if(temp == None):
+            return
+    prev.next = temp.next
+    f = open("outputPS5.txt", "a")
+    str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
+    f.write(str1)
+    f.close()
+    temp = None
+
+def completeTask(task_string = None, task_number = None):
+    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if res is True:
+        task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
+    current = List.head
+    while current:
+        if task_string == current.data or task_number == current.id:
+            f = open("outputPS5.txt", "a")
+            str1 = "Completed:TA"+str(current.id)+"-"+str(current.data.lstrip())
+            current.status = "C"
+            f.write(str1)
+            f.close()
+        current = current.next
+    pass
+
 def SearchTask(self, value):
         curr = self.head
-        f = open("output.txt", "a")
+        f = open("outputPS5.txt", "a")
         str1 = "SEARCHED:book"
         str2 = "--------------------------------"
         f.write(str1)
@@ -67,31 +109,10 @@ def SearchTask(self, value):
         f.write(str2)
         f.close()
         
-def removeTask(task_string):
-    temp = List.head
-    flag = 0
-    
-    if (temp is not None):
-        if (temp.data == task_string):
-            List.head = temp.next
-            flag = 1
-    if flag == 0:
-        while(temp is not None):
-            if temp.data.strip() == task_string.strip():
-                break
-            prev = temp
-            temp = temp.next       
-    if(temp == None):
-            return
-    prev.next = temp.next
-    f = open("output.txt", "a")
-    str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data)
-    f.write(str1)
-    f.close()
-    temp = None
+
 
  
-initiateToDoList("demofile.txt")
+initiateToDoList("inputPS5.txt")
    
 
 
