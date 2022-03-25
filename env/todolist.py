@@ -1,3 +1,4 @@
+import time
 class Node:                #Node
   id=1
   # constructor
@@ -16,6 +17,10 @@ class LinkedList:            #List
 List = LinkedList()
 def initiateToDoList(input_file):
     fp = open(input_file, "r")
+    f =open("outputPS5.txt", 'r+') 
+    f.truncate(0)
+    f.close()
+    
     while True:
         lines = fp.readline()
         if lines == "":
@@ -30,7 +35,7 @@ def initiateToDoList(input_file):
             completeTask(action)
             pass
         elif task == 'Mark InComplete': #Vishak
-            # List.incompleteTask()
+            incompleteTask(action)
             pass 
         elif task == 'Task Status':   #Hitesh done
             statusTask()
@@ -58,22 +63,15 @@ def removeTask(task_string = None, task_number = None):
     if res is True:
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
     temp = List.head
-    flag = 0
-    
-    if (temp is not None):
-        if (temp.data == task_string or temp.id == task_number):
-            List.head = List.head.next
-            flag = 1
-
-    if flag == 0:
-        while(temp is not None):
-            if temp.data == task_string or temp.id == task_number:
-                prev.next = temp.next
-                break
-            prev = temp
-            temp = temp.next       
+    prev = List.head
+    while(temp is not None):
+        if temp.data == task_string or temp.id == task_number:
+            prev.next = temp.next
+            break
+        prev = temp
+        temp = temp.next       
     if(temp == None):
-            return 
+        return 
     f = open("outputPS5.txt", "a")
     str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
     f.write(str1)
@@ -94,10 +92,25 @@ def completeTask(task_string = None, task_number = None):
             f.close()
         current = current.next
 
+def incompleteTask(task_string = None, task_number = None):
+    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if res is True:
+        task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
+    current = List.head
+    while current:
+        if task_string == current.data or task_number == current.id:
+            f = open("outputPS5.txt", "a")
+            str1 = "UNCOMPLETED:TA"+str(current.id)+"-"+str(current.data.lstrip())
+            current.status = "I"
+            f.write(str1)
+            f.close()
+        current = current.next
+
 def searchTask(search_string):
+        flag = 0
         value = search_string.replace(".","").strip()
         curr = List.head
-        str1 = "SEARCHED:"+search_string
+        str1 = "SEARCHED:"+search_string+"\n"
         str2 = "----------------------\n"
         f = open("outputPS5.txt", "a")
         f.write(str1)
@@ -105,8 +118,11 @@ def searchTask(search_string):
         while curr:
             Lvalue = curr.data
             if value.upper() in Lvalue.upper():
+                flag = 1
                 f.write(curr.data)
             curr = curr.next
+        if flag == 0:
+            f.write(value+" Not Found\n")
         f.write(str2)
         f.close()
        
@@ -130,9 +146,7 @@ def  statusTask():
         f.write(str3)
         f.close()
         
- 
+start =time.time()
 initiateToDoList("inputPS5.txt")
-   
-
-
-
+end = time.time()
+print(end - start)
