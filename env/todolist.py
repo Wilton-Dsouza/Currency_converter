@@ -69,21 +69,24 @@ def removeTask(task_string = None, task_number = None):
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
 
     temp = List.head
-    prev = List.head
-
     f = open("outputPS5.txt", "a")
     if (temp is not None):
-        if (temp.data == task_string):
+        if (temp.data == task_string or temp.data == task_number):
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
             List.head = temp.next
+
     while(temp is not None):
-        if temp.data == task_string:
+        flag = 0
+        if temp.data == task_string or temp.data == task_number:
             print(temp.data)
+            flag = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
-            prev.next = temp.next
-            break
-        prev = temp
-        temp = temp.next
+            prev.next= temp.next
+            temp = prev.next
+        if flag == 0:
+            prev = temp
+            temp = temp.next
+
 
     f.write(str1)
     f.close()
