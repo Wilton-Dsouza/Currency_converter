@@ -25,23 +25,18 @@ def initiateToDoList(input_file):
         if lines == "":
             break
         task,action = lines.split(":")
-        #print(task,action)
         if task == 'Add a Task':        
             addTask(action)
         elif task == 'Remove Task':     
             removeTask(action)
         elif task == 'Mark Complete':  
             completeTask(action)
-            pass
         elif task == 'Mark InComplete': 
             incompleteTask(action)
-            pass 
         elif task == 'Task Status':   
             statusTask()
-            pass 
         elif task == 'Search Task':   
             searchTask(action)
-            pass
     fp.close()
 
 def addTask(task_string):
@@ -66,18 +61,16 @@ def removeTask(task_string = None, task_number = None):
     res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
     if res is True:
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
-
     temp = List.head
     f = open("outputPS5.txt", "a")
     if (temp is not None):
-        if (temp.data == task_string or temp.data == task_number):
+        if (temp.data == task_string or temp.id == task_number):
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
             List.head = temp.next
 
     while(temp is not None):
         flag = 0
-        if temp.data == task_string or temp.data == task_number:
-            print(temp.data)
+        if temp.data == task_string or temp.id == task_number:
             flag = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
             prev.next= temp.next

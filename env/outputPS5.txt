@@ -6,7 +6,7 @@ ADDED:TA5-Book a ticket.
 ADDED:TA6-Return Library Books.
 ADDED:TA7-Wish Birthday
 ADDED:TA8-Book a ticket.
-REMOVED:TA8-Book a ticket.
+REMOVED:TA5-Book a ticket.
 Completed:TA1-Complete Assignment.
 Completed:TA4-Complete Assignment.
 TASK-STATUS:
@@ -18,4 +18,5 @@ TA3         Return Library Books.   I
 TA4         Complete Assignment.   C
 TA6         Return Library Books.   I
 TA7         Wish Birthday   I
+TA8         Book a ticket.   I
 -------------------------------

@@ -6,6 +6,6 @@ Add a Task: Book a ticket.
 Add a Task: Return Library Books.
 Add a Task: Wish Birthday
 Add a Task: Book a ticket.
-Remove Task: Book a ticket.
+Remove Task: TA5.
 Mark Complete: Complete Assignment.
 Task Status:
