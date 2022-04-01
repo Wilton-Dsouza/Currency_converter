@@ -1,5 +1,5 @@
 import time
-class Node:                #Node
+class Node:                
   id=1
   # constructor
   def __init__(self, data = None, next=None, status='I'): 
@@ -9,10 +9,9 @@ class Node:                #Node
     self.id = Node.id
     Node.id += 1
 
-class LinkedList:            #List
+class LinkedList:            
   def __init__(self):  
     self.head = None
-    self.last_node = None
 
 List = LinkedList()
 def initiateToDoList(input_file):
@@ -27,20 +26,20 @@ def initiateToDoList(input_file):
             break
         task,action = lines.split(":")
         #print(task,action)
-        if task == 'Add a Task':        #Upendra done
+        if task == 'Add a Task':        
             addTask(action)
-        elif task == 'Remove Task':     #Upendra done
+        elif task == 'Remove Task':     
             removeTask(action)
-        elif task == 'Mark Complete':  #Wilton done
+        elif task == 'Mark Complete':  
             completeTask(action)
             pass
-        elif task == 'Mark InComplete': #Vishak
+        elif task == 'Mark InComplete': 
             incompleteTask(action)
             pass 
-        elif task == 'Task Status':   #Hitesh done
+        elif task == 'Task Status':   
             statusTask()
             pass 
-        elif task == 'Search Task':   #Hitesh done
+        elif task == 'Search Task':   
             searchTask(action)
             pass
     fp.close()
