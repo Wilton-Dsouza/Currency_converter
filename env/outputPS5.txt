@@ -6,17 +6,37 @@ REMOVED:TA4-Wish Birthday
 Completed:TA1-Complete Assignment.
 TASK-STATUS:
 Task-Number Task-String     Task-Status
---------------------------------
+-------------------------------
 TA1         Complete Assignment.   C
 TA2         Return Library Books.   I
 TA3         Book a ticket.   I
---------------------------------
+-------------------------------
+UNCOMPLETED:TA1-Complete Assignment.
 REMOVED:TA1-Complete Assignment.
 ADDED:TA5-Call Home.
 ADDED:TA6-Read Algorithm book
+TASK-STATUS:
+Task-Number Task-String     Task-Status
+-------------------------------
+TA2         Return Library Books.   I
+TA3         Book a ticket.   I
+TA5         Call Home.   I
+TA6         Read Algorithm book   I
+-------------------------------
+REMOVED:TA5-Call Home.
 SEARCHED: book.
-----------------------
+
+-------------------------------
  Return Library Books.
  Book a ticket.
-----------------------
-ADDED:TA7-wear mask,
+ Read Algorithm book
+-------------------------------
+ADDED:TA7-wear mask.
+TASK-STATUS:
+Task-Number Task-String     Task-Status
+-------------------------------
+TA2         Return Library Books.   I
+TA3         Book a ticket.   I
+TA6         Read Algorithm book   I
+TA7         wear mask.   I
+-------------------------------
