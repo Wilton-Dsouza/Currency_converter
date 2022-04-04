@@ -1,22 +1,14 @@
-ADDED:TA1-Complete Assignment.
-ADDED:TA2-Return Library Books.
-ADDED:TA3-Return Library Books.
+ADDED:TA1-Book Ticket
+ADDED:TA2-Book Ticket
+ADDED:TA3-Book Ticket
 ADDED:TA4-Complete Assignment.
-ADDED:TA5-Book a ticket.
-ADDED:TA6-Return Library Books.
-ADDED:TA7-Wish Birthday
-ADDED:TA8-Book a ticket.
-REMOVED:TA5-Book a ticket.
-Completed:TA1-Complete Assignment.
-Completed:TA4-Complete Assignment.
+ADDED:TA5-Complete Assignment.
+REMOVED:TA2-Book Ticket
+REMOVED:TA3-Book Ticket
+REMOVED:TA1-Book Ticket
 TASK-STATUS:
 Task-Number Task-String     Task-Status
 -------------------------------
-TA1         Complete Assignment.   C
-TA2         Return Library Books.   I
-TA3         Return Library Books.   I
-TA4         Complete Assignment.   C
-TA6         Return Library Books.   I
-TA7         Wish Birthday   I
-TA8         Book a ticket.   I
+TA4         Complete Assignment.   I
+TA5         Complete Assignment.   I
 -------------------------------

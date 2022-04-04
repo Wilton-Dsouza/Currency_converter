@@ -58,33 +58,41 @@ def addTask(task_string):
     return
     
 def removeTask(task_string = None, task_number = None):
-    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if task_string[2].isdigit():
+        res = True
+    else:
+        res = False
     if res is True:
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
     temp = List.head
+    temp = temp.next
+    prev = List.head       
     f = open("outputPS5.txt", "a")
-    if (temp is not None):
-        if (temp.data == task_string or temp.id == task_number):
-            str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
-            List.head = temp.next
-
     while(temp is not None):
         flag = 0
         if temp.data == task_string or temp.id == task_number:
             flag = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
+            f.write(str1)
             prev.next= temp.next
             temp = prev.next
         if flag == 0:
             prev = temp
             temp = temp.next
-
-
-    f.write(str1)
+    temp = List.head
+    if (temp is not None):
+        if (temp.data == task_string or temp.id == task_number):
+            str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())
+            f.write(str1)
+            List.head = temp.next
+            prev = temp
     f.close()
 
 def completeTask(task_string = None, task_number = None):
-    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if task_string[2].isdigit():
+        res = True
+    else:
+        res = False
     if res is True:
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
     current = List.head
@@ -98,7 +106,10 @@ def completeTask(task_string = None, task_number = None):
         current = current.next
 
 def incompleteTask(task_string = None, task_number = None):
-    res = True if next((chr for chr in task_string if chr.isdigit()), None) else False
+    if task_string[2].isdigit():
+        res = True
+    else:
+        res = False
     if res is True:
         task_number = int(''.join(filter(lambda i: i.isdigit(), task_string)))
     current = List.head
