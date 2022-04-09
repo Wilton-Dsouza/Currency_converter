@@ -15,6 +15,7 @@ UNCOMPLETED:TA1-Complete Assignment
 REMOVED:TA1-Complete Assignment
 ADDED:TA5-Call Home
 ADDED:TA6-Read Algorithm book
+REMOVED:TA5-Call Home
 SEARCHED: book.
 -------------------------------
 Return Library Books
@@ -27,7 +28,6 @@ Task-Number Task-String     Task-Status
 -------------------------------
 TA2        Return Library Books   I
 TA3        Book a ticket   I
-TA5        Call Home   I
 TA6        Read Algorithm book   I
 TA7        wear mask   I
 -------------------------------
