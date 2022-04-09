@@ -67,7 +67,6 @@ def removeTask(task_string = None, task_number = None):
     else:
         res = False
     if res is True:
-        # task_number = int(''.join(filter(lambda i: i.isdigit(), task_string))) # conversion numbers from string type to integer type
         task_number = int(task_string[2:])
         task_string = None
     temp = List.head
@@ -87,9 +86,7 @@ def removeTask(task_string = None, task_number = None):
             temp = temp.next
     temp = List.head
     if (temp is not None):
-        print(temp.data)
         if (temp.data == task_string or temp.id == task_number):
-            print(task_string)
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())+"\n"
             f.write(str1)
             List.head = temp.next
@@ -104,18 +101,18 @@ def completeTask(task_string = None, task_number = None):
     else:
         res = False
     if res is True:
-        # task_number = int(''.join(filter(lambda i: i.isdigit(), task_string))) # conversion numbers from string type to integer type
         task_number = int(task_string[2:])
         task_string = None
     current = List.head
+    f = open("outputPS5.txt", "a")
     while current:
         if task_string == current.data or task_number == current.id:
-            f = open("outputPS5.txt", "a")
             str1 = "Completed:TA"+str(current.id)+"-"+str(current.data.lstrip())+"\n"
             current.status = "C"
             f.write(str1)
-            f.close()
         current = current.next
+    f.close()
+
 
 def incompleteTask(task_string = None, task_number = None):
     # This function sets the status of the task to InComplete i.e., I
@@ -125,18 +122,18 @@ def incompleteTask(task_string = None, task_number = None):
     else:
         res = False
     if res is True:
-        # task_number = int(''.join(filter(lambda i: i.isdigit(), task_string))) # conversion numbers from string type to integer type
         task_number = int(task_string[2:])
         task_string = None
     current = List.head
+    f = open("outputPS5.txt", "a")
     while current:
         if task_string == current.data or task_number == current.id:
-            f = open("outputPS5.txt", "a")
             str1 = "UNCOMPLETED:TA"+str(current.id)+"-"+str(current.data.lstrip())+"\n"
             current.status = "I"
             f.write(str1)
-            f.close()
         current = current.next
+    f.close()
+
 
 def searchTask(search_string):
     # This function searches the task from the Linked List with the given search string

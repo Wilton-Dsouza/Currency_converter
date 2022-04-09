@@ -9,7 +9,7 @@ Mark InComplete: Complete Assignment.
 Remove Task: Complete Assignment.
 Add a Task: Call Home.
 Add a Task: Read Algorithm book
-Remove Task: TA209.
+Remove Task: Call Home.
 Search Task: book.
 Add a Task: wear mask.
 Task Status:
