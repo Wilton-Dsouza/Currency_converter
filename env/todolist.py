@@ -57,7 +57,6 @@ def addTask(task_string):
         str1 = "ADDED:TA"+str(last.next.id)+"-"+str(last.next.data.strip())+"\n"
     f.write(str1)
     f.close()
-    return
     
 def removeTask(task_string = None, task_number = None):
     # This function removes all the nodes with same task
@@ -112,7 +111,7 @@ def completeTask(task_string = None, task_number = None):
         task_number = int(task_string[2:])
         task_string = ""
     current = List.head
-    f = open("outputPS5.txt", "a")
+    f = open("outputPS5.txt", "a") 
     while current:
         if task_string.upper() == current.data.upper() or task_number == current.id:
             flag = 1
@@ -165,7 +164,7 @@ def searchTask(search_string):
             Lvalue = curr.data
             if value.upper() in Lvalue.upper():
                 flag = 1
-                f.write(curr.data+"\n")
+                f.write("TA"+str(curr.id)+"-"+curr.data+"\n")
             curr = curr.next
         if flag == 0:
             f.write(value+" - task not found\n")
