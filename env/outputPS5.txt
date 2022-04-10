@@ -1,33 +1,13 @@
 ADDED:TA1-Complete Assignment
 ADDED:TA2-Return Library Books
 ADDED:TA3-Book a ticket
-ADDED:TA4-Wish Birthday
-REMOVED:TA4-Wish Birthday
-Completed:TA1-Complete Assignment
+ADDED:TA4-TA2
+TA5 - to be removed not found
 TASK-STATUS:
 Task-Number Task-String     Task-Status
 -------------------------------
-TA1        Complete Assignment   C
+TA1        Complete Assignment   I
 TA2        Return Library Books   I
 TA3        Book a ticket   I
--------------------------------
-UNCOMPLETED:TA1-Complete Assignment
-REMOVED:TA1-Complete Assignment
-ADDED:TA5-Call Home
-ADDED:TA6-Read Algorithm book
-REMOVED:TA5-Call Home
-SEARCHED: book.
--------------------------------
-Return Library Books
-Book a ticket
-Read Algorithm book
--------------------------------
-ADDED:TA7-wear mask
-TASK-STATUS:
-Task-Number Task-String     Task-Status
--------------------------------
-TA2        Return Library Books   I
-TA3        Book a ticket   I
-TA6        Read Algorithm book   I
-TA7        wear mask   I
+TA4        TA2   I
 -------------------------------

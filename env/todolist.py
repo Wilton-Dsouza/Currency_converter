@@ -61,22 +61,25 @@ def addTask(task_string):
     
 def removeTask(task_string = None, task_number = None):
     # This function removes all the nodes with same task
+    flag2 = 0
     task_string = task_string.replace(".","").strip()
+    value = task_string
     if task_string[2].isdigit() and task_string[:2] == "TA":
         res = True
     else:
         res = False
     if res is True:
         task_number = int(task_string[2:])
-        task_string = None
+        task_string = ""
     temp = List.head
     temp = temp.next
     prev = List.head       
     f = open("outputPS5.txt", "a")
     while(temp is not None):
         flag = 0
-        if temp.data == task_string or temp.id == task_number:
+        if temp.data.upper() == task_string.upper() or temp.id == task_number:
             flag = 1
+            flag2 = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())+"\n"
             f.write(str1)
             prev.next= temp.next
@@ -86,52 +89,65 @@ def removeTask(task_string = None, task_number = None):
             temp = temp.next
     temp = List.head
     if (temp is not None):
-        if (temp.data == task_string or temp.id == task_number):
+        if (temp.data.upper() == task_string.upper() or temp.id == task_number):
+            flag2 = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())+"\n"
             f.write(str1)
             List.head = temp.next
             prev = temp
+    if flag2 == 0:
+            f.write(value+" - to be removed not found\n")
     f.close()
 
 def completeTask(task_string = None, task_number = None):
     # This function sets the status of the task to Complete i.e., C
+    flag = 0
     task_string = task_string.replace(".","").strip()
+    value = task_string
     if task_string[2].isdigit() and task_string[:2] == "TA":
         res = True
     else:
         res = False
     if res is True:
         task_number = int(task_string[2:])
-        task_string = None
+        task_string = ""
     current = List.head
     f = open("outputPS5.txt", "a")
     while current:
-        if task_string == current.data or task_number == current.id:
+        if task_string.upper() == current.data.upper() or task_number == current.id:
+            flag = 1
             str1 = "Completed:TA"+str(current.id)+"-"+str(current.data.lstrip())+"\n"
             current.status = "C"
             f.write(str1)
         current = current.next
+    if flag == 0:
+            f.write(value+" - to be marked complete is not found \n")
     f.close()
 
 
 def incompleteTask(task_string = None, task_number = None):
     # This function sets the status of the task to InComplete i.e., I
+    flag = 0
     task_string = task_string.replace(".","").strip()
+    value = task_string
     if task_string[2].isdigit() and task_string[:2] == "TA":
         res = True
     else:
         res = False
     if res is True:
         task_number = int(task_string[2:])
-        task_string = None
+        task_string = ""
     current = List.head
     f = open("outputPS5.txt", "a")
     while current:
-        if task_string == current.data or task_number == current.id:
+        if task_string.upper() == current.data.upper() or task_number == current.id:
+            flag = 1
             str1 = "UNCOMPLETED:TA"+str(current.id)+"-"+str(current.data.lstrip())+"\n"
             current.status = "I"
             f.write(str1)
         current = current.next
+    if flag == 0:
+        f.write(value+" - to be marked incomplete is not found \n")
     f.close()
 
 
@@ -152,7 +168,7 @@ def searchTask(search_string):
                 f.write(curr.data+"\n")
             curr = curr.next
         if flag == 0:
-            f.write(value+" Not Found\n")
+            f.write(value+" - task not found\n")
         f.write(str2)
         f.close()
        
