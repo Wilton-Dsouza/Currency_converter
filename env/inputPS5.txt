@@ -1,6 +1,16 @@
 Add a Task: Complete Assignment.
 Add a Task: Return Library Books.
 Add a Task: Book a ticket.
-Add a Task: TA2
-Remove Task: TA5
+Add a Task: Wish Birthday
+Remove Task: Wish Birthday
+Mark Complete: Complete Assignment.
+Task Status:
+Mark InComplete: Complete Assignment.
+Remove Task: Complete Assignment.
+Add a Task: Call Home.
+Add a Task: Read Algorithm book
+Remove Task: Call Home.
+Search Task: book.
+Add a Task: wear mask
+Remove Task: TA3
 Task Status:

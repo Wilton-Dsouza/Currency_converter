@@ -74,7 +74,7 @@ def removeTask(task_string = None, task_number = None):
     temp = temp.next
     prev = List.head       
     f = open("outputPS5.txt", "a")
-    while(temp is not None):
+    while(temp is not None): # Removes the other nodes except the head node
         flag = 0
         if temp.data.upper() == task_string.upper() or temp.id == task_number:
             flag = 1
@@ -87,7 +87,7 @@ def removeTask(task_string = None, task_number = None):
             prev = temp
             temp = temp.next
     temp = List.head
-    if (temp is not None):
+    if (temp is not None): # Removes the head node
         if (temp.data.upper() == task_string.upper() or temp.id == task_number):
             flag2 = 1
             str1 = "REMOVED:TA"+str(temp.id)+"-"+str(temp.data.lstrip())+"\n"
@@ -159,7 +159,7 @@ def searchTask(search_string):
         str2 = "-------------------------------\n"
         f = open("outputPS5.txt", "a")
         f.write(str1)
-        f.write(str2)
+        f.write(str2) 
         while curr:
             Lvalue = curr.data
             if value.upper() in Lvalue.upper():
